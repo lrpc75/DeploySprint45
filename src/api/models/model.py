@@ -1,6 +1,5 @@
 import os
 import tarfile
-import boto3
 import joblib
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
@@ -11,35 +10,6 @@ import os
 def load_model():
     # Carregar variáveis de ambiente do arquivo .env
     load_dotenv()
-
-
-    # Example of using AWS credentials
-    #aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
-    #aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')
-
-    # Inicializar a sessão boto3
-    #boto3_session = boto3.Session(profile_name=os.getenv('PROFILE_NAME'))
-
-    # Usar as credenciais para criar um cliente boto3
-    #s3_client = boto3.client('s3',
-    #                  aws_access_key_id=aws_access_key_id,
-    #                  aws_secret_access_key=aws_secret_access_key
-    #)
-
-    # Cliente S3
-    #s3_client = boto3_session.client('s3')
-
-    # Nome do bucket S3 e chave onde os artefatos do modelo estão armazenados
-    #s3_bucket = os.getenv('S3_BUCKET')
-    #s3_key = os.getenv('S3_KEY')
-
-    # Verifique se o objeto existe usando head_object
-    #try:
-    #    response = s3_client.head_object(Bucket=s3_bucket, Key=s3_key)
-    #    print(f"Objeto '{s3_key}' encontrado no bucket '{s3_bucket}'.")
-    #except Exception as e:
-    #    print(f"Erro ao verificar o objeto '{s3_key}' no bucket '{s3_bucket}': {e}")
-    #    raise
 
     # Carregar os artefatos do modelo do S3 para um diretório local
     local_model_dir = './src/api/models/'
